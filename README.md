@@ -153,7 +153,7 @@ GET /api/treasures?latitude=14.552036595352455&longitude=121.01696118771324&dist
 **Example Request:**
 
 ```http
-GET /api/treasures?latitude=14.552036595352455&longitude=121.01696118771324&distance=1&prize_value=10
+GET /api/treasures?latitude=14.552036595352455&longitude=121.01696118771324&distance=1&prizeValue=10
 ```
 
 **Response:**
