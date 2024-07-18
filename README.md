@@ -35,19 +35,11 @@ If you don't have MySQL installed, you can download and install it from the [off
 
 #### Start MySQL Server
 
-Start the MySQL server using MySQL Workbench. On Mac, you can also start the server using the following command if installed via Homebrew:
-
-```bash
-brew services start mysql
-```
+Start the MySQL server using MySQL Workbench.
 
 #### Create Database
 
 Log in to the MySQL server using MySQL Workbench and create the `kitra_game` database. Alternatively, you can use the command line:
-
-```bash
-mysql -u root -p
-```
 
 Once logged in, create the database:
 
