@@ -1,5 +1,3 @@
-### README.md
-
 # Node.js with MySQL Mini Project
 
 ## Introduction
