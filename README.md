@@ -19,8 +19,8 @@ This project involves creating a Node.js application with Express.js and MySQL t
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd nodejs-mysql-project
+git clone https://github.com/renmission/kitra_game.git
+cd kitra_game
 ```
 
 ### 2. Install Dependencies
@@ -34,10 +34,10 @@ npm install
 Create a `.env` file in the root directory and add the following:
 
 ```plaintext
-DB_HOST=your-database-host
-DB_USER=your-database-username
-DB_PASS=your-database-password
-DB_NAME=your-database-name
+DATABASE_USER=root
+DATABASE_PASS=password
+DATABASE_NAME=kitra_game
+NODE_ENV=development
 ```
 
 ### 4. Set Up the Database
@@ -56,7 +56,7 @@ npx sequelize-cli db:seed:all
 Start the Node.js server:
 
 ```bash
-node app.js
+npm run start
 ```
 
 The server will start on `http://localhost:3000`.
@@ -135,15 +135,30 @@ GET /api/treasures?latitude=14.552036595352455&longitude=121.01696118771324&dist
 
 ```json
 [
-  {
-    "id": 1,
-    "latitude": 14.552036595352455,
-    "longitude": 121.01696118771324,
-    "name": "Treasure 1",
-    "moneyValues": [
-      { "amt": 10 }
-    ]
-  }
+    {
+        "id": 102,
+        "latitude": 14.5446435656183,
+        "longitude": 121.020365629871,
+        "name": "T3",
+        "createdAt": "2024-07-18T05:36:38.000Z",
+        "updatedAt": "2024-07-18T05:36:38.000Z",
+        "moneyValues": [
+            {
+                "id": 21,
+                "treasure_id": 102,
+                "amt": 20,
+                "createdAt": "2024-07-18T05:36:38.000Z",
+                "updatedAt": "2024-07-18T05:36:38.000Z"
+            },
+            {
+                "id": 3,
+                "treasure_id": 102,
+                "amt": 15,
+                "createdAt": "2024-07-18T05:36:38.000Z",
+                "updatedAt": "2024-07-18T05:36:38.000Z"
+            }
+        ]
+    }
 ]
 ```
 
