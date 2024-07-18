@@ -56,7 +56,7 @@ npx sequelize-cli db:seed:all
 Start the Node.js server:
 
 ```bash
-npm run start
+npm run dev
 ```
 
 The server will start on `http://localhost:3000`.
@@ -162,15 +162,47 @@ GET /api/treasures?latitude=14.552036595352455&longitude=121.01696118771324&dist
 ]
 ```
 
-### 3. Bonus Endpoint
+### 3. List Treasures By Proximity (Bonus)
 
-**Endpoint:** `/api/treasures/bonus`
+**Endpoint:** `/api/treasures/proximity`
 
 **Method:** `GET`
 
-**Description:**
+**Query Parameters:**
 
-This is a placeholder for an additional endpoint that provides extra functionality. You can define any bonus functionality you think would be useful.
+- `latitude` (required): Latitude of the location.
+- `longitude` (required): Longitude of the location.
+- `distance` (required): Distance in km (Only accept positive numbers).
+
+**Example Request:**
+
+```http
+GET /api/treasures/proximity?latitude=14.552036595352455&longitude=121.01696118771324&distance=1&prize_value=10
+```
+
+**Response:**
+
+```json
+{
+    "treasures": [
+        {
+            "name": "T3",
+            "latitude": 14.5446435656183,
+            "longitude": 121.020365629871,
+            "total": 35,
+            "proximity": 0.9000319175858437
+        },
+        {
+            "name": "T1",
+            "latitude": 14.5437648051331,
+            "longitude": 121.019911678311,
+            "total": 35,
+            "proximity": 0.973058105284692
+        },
+        ...
+    ]
+}
+```
 
 ## Testing
 
