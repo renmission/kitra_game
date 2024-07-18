@@ -6,7 +6,7 @@
 
 Kitra is a game where users can collect treasures in a given latitude and longitude. Every treasure collected has points based on its monetary value. A treasure may have more than one monetary value, depending on the user's luck. Kitra users aim to get the highest money value from the treasure collected.
 
-This project involves creating a Node.js application with Express.js and MySQL to manage and interact with treasure data. The application provides API endpoints to find treasure boxes within a certain distance and with specific prize values.
+This project involves creating a Node.js application with Express.js and MySQL to manage and interact with treasure data. The application provides API endpoints to find treasure boxes within a certain distance, with specific prize values, and to list treasures by proximity.
 
 ## Prerequisites
 
@@ -29,7 +29,35 @@ cd kitra_game
 npm install
 ```
 
-### 3. Configure Environment Variables
+### 3. Set Up MySQL
+
+#### Install MySQL Server
+
+If you don't have MySQL installed, you can download and install it from the [official MySQL website](https://dev.mysql.com/downloads/mysql/).
+
+#### Start MySQL Server
+
+Start the MySQL server using MySQL Workbench. On Mac, you can also start the server using the following command if installed via Homebrew:
+
+```bash
+brew services start mysql
+```
+
+#### Create Database
+
+Log in to the MySQL server using MySQL Workbench and create the `kitra_game` database. Alternatively, you can use the command line:
+
+```bash
+mysql -u root -p
+```
+
+Once logged in, create the database:
+
+```sql
+CREATE DATABASE kitra_game;
+```
+
+### 4. Configure Environment Variables
 
 Create a `.env` file in the root directory and add the following:
 
@@ -40,7 +68,9 @@ DATABASE_NAME=kitra_game
 NODE_ENV=development
 ```
 
-### 4. Set Up the Database
+Replace `root` and `password` with your MySQL username and password.
+
+### 5. Set Up the Database
 
 #### Create Tables and Seed Data
 
@@ -162,7 +192,7 @@ GET /api/treasures?latitude=14.552036595352455&longitude=121.01696118771324&dist
 ]
 ```
 
-### 3. List Treasures By Proximity (Bonus)
+### 3. List Treasures By Proximity
 
 **Endpoint:** `/api/treasures/proximity`
 
@@ -172,12 +202,12 @@ GET /api/treasures?latitude=14.552036595352455&longitude=121.01696118771324&dist
 
 - `latitude` (required): Latitude of the location.
 - `longitude` (required): Longitude of the location.
-- `distance` (required): Distance in km (Only accept positive numbers).
+- `distance` (required): Distance in km (only accepts positive numbers).
 
 **Example Request:**
 
 ```http
-GET /api/treasures/proximity?latitude=14.552036595352455&longitude=121.01696118771324&distance=1&prize_value=10
+GET /api/treasures/proximity?latitude=14.552036595352455&longitude=121.01696118771324&distance=1
 ```
 
 **Response:**
@@ -198,8 +228,7 @@ GET /api/treasures/proximity?latitude=14.552036595352455&longitude=121.016961187
             "longitude": 121.019911678311,
             "total": 35,
             "proximity": 0.973058105284692
-        },
-        ...
+        }
     ]
 }
 ```
