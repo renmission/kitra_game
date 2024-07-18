@@ -35,7 +35,7 @@ If you don't have MySQL installed, you can download and install it from the [off
 
 #### Start MySQL Server
 
-Start the MySQL server using MySQL Workbench.
+Start the MySQL server.
 
 #### Create Database
 
