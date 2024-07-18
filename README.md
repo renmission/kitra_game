@@ -57,15 +57,20 @@ Once logged in, create the database:
 CREATE DATABASE kitra_game;
 ```
 
-### 4. Configure Environment Variables
+### 4. Configure config file
 
-Create a `.env` file in the root directory and add the following:
+Config file in the config directory and add the following:
 
 ```plaintext
-DATABASE_USER=root
-DATABASE_PASS=password
-DATABASE_NAME=kitra_game
-NODE_ENV=development
+{
+  "development": {
+    "username": "root",
+    "password": "password",
+    "database": "kitra_game",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
 ```
 
 Replace `root` and `password` with your MySQL username and password.
